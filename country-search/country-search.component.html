@@ -1,0 +1,15 @@
+<p>country-search works!</p>
+<h1>Country Search</h1>
+<input [(ngModel)]="searchTerm" type="text" placeholder="Search for a country">
+<button (click)="searchCountry()">Search</button>
+<div *ngIf="matchedCountries.length > 0; else noResult">
+  <div class="countryCard" *ngFor="let country of matchedCountries">
+    <h2>{{ country.name }}</h2>
+    <p>Capital: {{ country.capital }}</p>
+    <p>Population: {{ country.population }}</p>
+    <p>Region: {{ country.region }}</p>
+  </div>
+</div>
+<ng-template #noResult>
+  <p class="noResult">No country found!</p>
+</ng-template>
